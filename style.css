@@ -1,0 +1,363 @@
+/* Lapisan percantik OPSIONAL di atas Bootstrap.
+   Struktur dan tata letak tetap dari Bootstrap. Hapus baris <link href="style.css">
+   di index.html kalau ingin kembali ke tampilan Bootstrap murni. */
+[data-bs-theme=dark] {
+    --bs-body-bg: #050d1f;
+    --bs-body-bg-rgb: 5, 13, 31;
+    --bs-tertiary-bg: #08183a;
+    --bs-tertiary-bg-rgb: 8, 24, 58;
+    --bs-primary-bg-subtle: #071a3d;
+    --bs-body-font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-4,
+.navbar-brand {
+    font-family: 'Sora', sans-serif;
+    letter-spacing: -.01em
+}
+
+html {
+    scroll-padding-top: 70px
+}
+
+.navbar {
+    background: rgba(5, 13, 31, .82) !important;
+    backdrop-filter: blur(14px)
+}
+
+.navbar .nav-link.active {
+    color: #fff;
+    box-shadow: inset 0 -2px 0 var(--bs-primary)
+}
+
+#beranda {
+    background: radial-gradient(900px 520px at 85% 10%, rgba(30, 123, 255, .25), transparent 60%), radial-gradient(600px 400px at 0% 100%, rgba(30, 123, 255, .12), transparent 60%), #050d1f !important
+}
+
+#fans-mu {
+    background: radial-gradient(800px 420px at 90% 20%, rgba(224, 58, 47, .22), transparent 60%), linear-gradient(180deg, #050d1f, #14091a 50%, #050d1f) !important
+}
+
+#pendidikan {
+    background: linear-gradient(180deg, #08183a, #050d1f) !important
+}
+
+/* tombol */
+.btn-primary {
+    --bs-btn-bg: #1e7bff;
+    --bs-btn-border-color: #1e7bff;
+    --bs-btn-hover-bg: #3b8dff;
+    --bs-btn-hover-border-color: #3b8dff;
+    box-shadow: 0 8px 24px -8px rgba(30, 123, 255, .85);
+    transition: transform .2s, box-shadow .2s, background .2s
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -8px rgba(30, 123, 255, .95)
+}
+
+.btn-danger {
+    box-shadow: 0 8px 24px -8px rgba(224, 58, 47, .85);
+    transition: transform .15s
+}
+
+.btn-danger:active {
+    transform: scale(.94)
+}
+
+.btn-outline-secondary.rounded-circle {
+    transition: transform .2s, background .2s
+}
+
+.btn-outline-secondary.rounded-circle:hover {
+    transform: translateY(-3px);
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff
+}
+
+/* foto bulat: cincin putus-putus berputar + cahaya */
+.ring-wrap {
+    position: relative;
+    box-shadow: 0 30px 80px -30px rgba(30, 123, 255, .8)
+}
+
+.ring-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -16px;
+    border-radius: 50%;
+    border: 1px dashed rgba(90, 162, 255, .5);
+    animation: spin 40s linear infinite;
+    pointer-events: none
+}
+
+.ring-wrap::after {
+    content: "";
+    position: absolute;
+    inset: -34px;
+    border-radius: 50%;
+    border: 1px solid rgba(90, 162, 255, .18);
+    animation: spin 70s linear infinite reverse;
+    pointer-events: none
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.float-chip {
+    animation: float 5s ease-in-out infinite;
+    backdrop-filter: blur(8px);
+    z-index: 2
+}
+
+.float-chip:nth-of-type(2) {
+    animation-delay: -1.6s
+}
+
+.float-chip:nth-of-type(3) {
+    animation-delay: -3.2s
+}
+
+@keyframes float {
+    50% {
+        translate: 0 -10px
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+    border-radius: 50%
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(53, 208, 127, .7)
+    }
+
+    70%,
+    100% {
+        box-shadow: 0 0 0 9px rgba(53, 208, 127, 0)
+    }
+}
+
+/* strip berjalan: teks besar samar tanpa kotak, gerak otomatis, berhenti saat di-hover */
+.marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)
+}
+
+.marquee .track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 30s linear infinite
+}
+
+.marquee:hover .track {
+    animation-play-state: paused
+}
+
+.marquee .badge {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem !important;
+    color: rgba(233, 239, 255, .45) !important;
+    white-space: nowrap;
+    transition: color .3s
+}
+
+.marquee .badge:hover {
+    color: #fff !important
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-50% - 2rem))
+    }
+}
+
+/* kartu, muncul perlahan */
+.hover-card {
+    transition: transform .3s, box-shadow .3s, border-color .3s
+}
+
+.hover-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--bs-primary) !important
+}
+
+.timeline-item .hover-card:hover {
+    transform: translateX(5px)
+}
+
+[data-reveal] {
+    transform: translateY(26px);
+    transition: opacity .7s ease, transform .7s ease
+}
+
+[data-reveal].show {
+    transform: none
+}
+
+.card {
+    --bs-card-bg: #0c2147
+}
+
+.card.bg-transparent {
+    --bs-card-bg: transparent
+}
+
+.modal-content {
+    background: #0c2147;
+    border-color: rgba(120, 160, 255, .2)
+}
+
+.modal-backdrop.show {
+    opacity: .7;
+    backdrop-filter: blur(4px)
+}
+
+.form-control {
+    background: rgba(5, 13, 31, .7)
+}
+
+.form-control:focus {
+    background: rgba(5, 13, 31, .9)
+}
+
+.d-inline-flex.rounded-3.p-3 {
+    transition: transform .3s
+}
+
+.card:hover .d-inline-flex.rounded-3.p-3 {
+    transform: rotate(-8deg) scale(1.08)
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important
+    }
+
+    [data-reveal] {
+        transform: none
+    }
+}
+
+/* ===== Penyempurnaan: tampilan lebih lembut (sudut membulat, garis tipis, bayangan halus) ===== */
+html[data-bs-theme=dark] {
+    --bs-body-bg: #050d1f;
+    --bs-body-bg-rgb: 5, 13, 31;
+    --bs-tertiary-bg: #08183a;
+    --bs-tertiary-bg-rgb: 8, 24, 58;
+    --bs-primary-bg-subtle: #071a3d;
+    --bs-border-color: rgba(120, 160, 255, .16);
+}
+
+html,
+body {
+    background-color: #050d1f
+}
+
+.card {
+    --bs-card-bg: #0c2147;
+    --bs-card-border-radius: 1.25rem;
+    --bs-card-inner-border-radius: calc(1.25rem - 1px);
+    background-color: #0c2147;
+    border-radius: 1.25rem;
+    box-shadow: 0 14px 34px -22px rgba(0, 0, 0, .75);
+}
+
+.card.bg-transparent {
+    background-color: transparent;
+    box-shadow: none
+}
+
+.card.border-primary-subtle,
+.card.border-primary {
+    border-color: rgba(120, 160, 255, .16) !important
+}
+
+.card.border-success {
+    border-color: rgba(53, 208, 127, .35) !important
+}
+
+.hover-card:hover {
+    border-color: rgba(90, 162, 255, .5) !important;
+    box-shadow: 0 24px 44px -24px rgba(30, 123, 255, .55)
+}
+
+/* garis waktu lebih halus */
+.timeline-item.border-primary {
+    border-color: rgba(90, 162, 255, .3) !important
+}
+
+/* tombol outline berbentuk pil dan lembut */
+.btn-outline-primary {
+    --bs-btn-color: #8ec0ff;
+    --bs-btn-border-color: rgba(90, 162, 255, .4);
+    --bs-btn-hover-bg: rgba(30, 123, 255, .18);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-border-color: #1e7bff;
+    --bs-btn-active-bg: #1e7bff;
+    --bs-btn-active-color: #fff;
+    border-radius: 999px
+}
+
+.btn-outline-success {
+    --bs-btn-border-color: rgba(53, 208, 127, .45);
+    --bs-btn-hover-bg: rgba(53, 208, 127, .16);
+    --bs-btn-hover-color: #fff;
+    border-radius: 999px
+}
+
+.btn-outline-secondary,
+.btn-detail,
+.btn-outline-light {
+    border-radius: 999px
+}
+
+.btn-outline-light {
+    --bs-btn-border-color: rgba(233, 239, 255, .35);
+    --bs-btn-hover-bg: rgba(255, 255, 255, .1);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-border-color: rgba(233, 239, 255, .6)
+}
+
+/* form dan popup */
+.form-control {
+    border-radius: .9rem;
+    border-color: rgba(120, 160, 255, .2);
+    padding: .75rem 1rem
+}
+
+.modal-content {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .9)
+}
+
+.card-header {
+    border-bottom-color: rgba(120, 160, 255, .16)
+}
+
+.badge.border {
+    border-color: rgba(120, 160, 255, .25) !important
+}

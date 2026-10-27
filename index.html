@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Abdal | Mahasiswa dan Fans Manchester United</title>
+    <meta name="description"
+        content="Portofolio pribadi Abdal: identitas, riwayat pendidikan, kepribadian sebagai mahasiswa, dan kecintaan pada Manchester United.">
+    <!-- Hanya Bootstrap (tanpa file CSS buatan sendiri) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Cadangan offline: dipakai otomatis jika file ada di folder lib/ (lihat lib/BACA-SAYA.txt) -->
+    <link href="lib/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="100" tabindex="0">
+
+    <!-- ============ BAGIAN 1: NAVBAR BURGER + HERO ============ -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#beranda"><span class="badge text-bg-primary me-1">AAP</span>Ahmad
+                Abdal Palalo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Buka menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pendidikan">Pendidikan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kepribadian">Kepribadian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fans-mu">Fans MU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+                <a href="#kontak" class="btn btn-primary rounded-pill mt-2 mt-lg-0">Ayo kenalan</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="beranda" class="bg-primary-subtle py-5">
+        <div class="container py-lg-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <span class="badge rounded-pill text-bg-dark border border-primary fw-normal fs-6 px-3 py-2"><i
+                            class="bi bi-circle-fill text-success me-2 small"></i>Mahasiswa aktif dan fans MU
+                        sejati</span>
+                    <h1 class="display-4 fw-bold mt-3">Halo, saya Abdal Palalo.<br><span class="text-primary">Saya <span
+                                id="typed"></span><span id="caret">|</span></span></h1>
+                    <p class="lead text-body-secondary mt-3">Mahasiswa yang suka belajar hal baru, senang ngobrol soal
+                        sepak bola, dan sudah mendukung Manchester United sejak masih kecil. Halaman ini berisi cerita
+                        singkat tentang saya.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#kontak" class="btn btn-primary btn-lg rounded-pill px-4">Hubungi saya <i
+                                class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="#tentang" class="btn btn-outline-light btn-lg rounded-pill px-4">Kenali saya</a>
+                    </div>
+                    <div class="d-flex gap-2 mt-4">
+                        <a href="https://www.instagram.com/abdalpalalo?psln=dm84cnhmdHkzdTVz"
+                            class="btn btn-outline-secondary rounded-circle" aria-label="Instagram"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/ahmad-abdal-palalo-433007431"
+                            class="btn btn-outline-secondary rounded-circle" aria-label="LinkedIn"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.tiktok.com/@abdalpalalo?is_from_webapp=1&sender_device=pc"
+                            class="btn btn-outline-secondary rounded-circle" aria-label="TikTok"><i
+                                class="bi bi-tiktok"></i></a>
+                        <a href="https://github.com/AhmadAbdalPalalo?tab=overview&from=2026-10-01&to=2026-10-27"
+                            class="btn btn-outline-secondary rounded-circle" aria-label="GitHub"><i
+                                class="bi bi-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <!-- Foto profil bulat. Nama file diatur di script.js (bagian FOTO), file ditaruh di folder foto/ -->
+                    <div class="position-relative w-75 mx-auto">
+                        <div class="rounded-circle border border-primary p-2">
+                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden bg-primary photo-slot"
+                                data-photo="profil">
+                                <span
+                                    class="d-flex align-items-center justify-content-center display-1 fw-bold text-white">T</span>
+                            </div>
+                        </div>
+                        <span
+                            class="badge rounded-pill text-bg-dark border border-primary position-absolute top-0 start-0 fs-6 fw-normal"><i
+                                class="bi bi-mortarboard-fill text-primary me-1"></i>Mahasiswa</span>
+                        <span
+                            class="badge rounded-pill text-bg-dark border border-danger position-absolute top-50 end-0 translate-middle-y fs-6 fw-normal"><i
+                                class="bi bi-trophy-fill text-danger me-1"></i>Fans MU</span>
+                        <span
+                            class="badge rounded-pill text-bg-dark border border-primary position-absolute bottom-0 start-0 fs-6 fw-normal"><i
+                                class="bi bi-lightbulb-fill text-warning me-1"></i>Suka belajar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-3 bg-body-tertiary border-top border-bottom" aria-label="Hal yang saya suka">
+        <div class="container d-flex flex-wrap justify-content-center gap-2">
+            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Manchester United</span>
+            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Red Devils</span>
+            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Old Trafford</span>
+            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Mahasiswa</span>
+            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Kopi dan begadang</span>
+            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Selalu penasaran</span>
+        </div>
+    </section>
+
+    <!-- ============ TENTANG + IDENTITAS ============ -->
+    <section id="tentang" class="py-5">
+        <div class="container py-lg-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5" data-reveal>
+                    <div class="card border-primary-subtle overflow-hidden hover-card">
+                        <div class="ratio ratio-1x1 bg-primary photo-slot" data-photo="profil">
+                            <i
+                                class="bi bi-person-circle d-flex align-items-center justify-content-center display-1 text-white"></i>
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-1">Ahmad Abdal Palalo</h3>
+                            <p class="text-body-secondary">Mahasiswa Teknik Informatika</p>
+                            <button class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                data-bs-target="#idModal"><i class="bi bi-person-vcard me-2"></i>Lihat kartu
+                                identitas</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-reveal>
+                    <h2 class="fw-bold">Sedikit tentang saya</h2>
+                    <p class="text-body-secondary">Saya mahasiswa yang masih terus belajar menemukan arah. Belum banyak
+                        karya resmi yang bisa dipamerkan, jadi di sini saya memilih bercerita apa adanya: siapa saya,
+                        dari mana saya belajar, dan apa yang saya cintai.</p>
+
+                    <!-- GANTI data di bawah ini dengan identitas aslimu -->
+                    <dl class="row my-4">
+                        <dt class="col-sm-4 text-body-secondary">Nama lengkap</dt>
+                        <dd class="col-sm-8 fw-semibold">Ahmad Abdal Palalo</dd>
+                        <dt class="col-sm-4 text-body-secondary">Usia</dt>
+                        <dd class="col-sm-8 fw-semibold">20 tahun</dd>
+                        <dt class="col-sm-4 text-body-secondary">Status</dt>
+                        <dd class="col-sm-8 fw-semibold">Mahasiswa semester 3</dd>
+                        <dt class="col-sm-4 text-body-secondary">Email</dt>
+                        <dd class="col-sm-8 fw-semibold">abdalpalalo92.com</dd>
+                        <dt class="col-sm-4 text-body-secondary">Alamat</dt>
+                        <dd class="col-sm-8 fw-semibold mb-0">Jl. Korban 40.00 jiwa, Kecamatan Tinambung, Kabupaten
+                            Polewali
+                            Mandar, Provinsi
+                            Sulawesi Barat</dd>
+                    </dl>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-4">
+                            <div class="card card-body text-center border-primary-subtle py-3 hover-card"><b
+                                    class="fs-3" data-count="20" data-suffix=" th">0</b><small
+                                    class="text-body-secondary">Usia</small></div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card card-body text-center border-primary-subtle py-3 hover-card"><b
+                                    class="fs-3" data-count="3" data-suffix="">0</b><small
+                                    class="text-body-secondary">Semester</small></div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card card-body text-center border-primary-subtle py-3 hover-card"><b
+                                    class="fs-3" data-count="14" data-suffix=" th">0</b><small
+                                    class="text-body-secondary">Jadi fans MU</small></div>
+                        </div>
+                    </div>
+                    <a href="#kontak" class="btn btn-primary rounded-pill px-4">Mulai ngobrol <i
+                            class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ RIWAYAT PENDIDIKAN ============ -->
+    <section id="pendidikan" class="py-5 bg-primary-subtle">
+        <div class="container py-lg-4">
+            <div class="text-center mb-5" data-reveal>
+                <h2 class="fw-bold">Riwayat pendidikan</h2>
+                <p class="text-body-secondary mb-0">Perjalanan belajar saya dari sekolah dasar sampai kuliah.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-reveal>
+                    <!-- GANTI nama sekolah dan tahun dengan data aslimu -->
+                    <div class="position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
+                        <span
+                            class="badge rounded-circle text-bg-primary position-absolute top-0 start-0 translate-middle p-2 fs-6"><i
+                                class="bi bi-backpack2"></i></span>
+                        <div class="card card-body border-primary-subtle hover-card">
+                            <small class="text-primary fw-semibold">2012 sampai 2018</small>
+                            <h3 class="h5">SD Negeri 018 Lombok</h3>
+                            <p class="text-body-secondary mb-0">Tempat saya belajar membaca, berhitung, dan pertama kali
+                                jatuh cinta pada sepak bola saat jam istirahat.</p>
+                            <div><button class="btn btn-outline-primary btn-sm mt-3 btn-gallery" data-level="sd"><i
+                                        class="bi bi-images me-2"></i>Lihat foto SD</button></div>
+                        </div>
+                    </div>
+                    <div class="position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
+                        <span
+                            class="badge rounded-circle text-bg-primary position-absolute top-0 start-0 translate-middle p-2 fs-6"><i
+                                class="bi bi-book"></i></span>
+                        <div class="card card-body border-primary-subtle hover-card">
+                            <small class="text-primary fw-semibold">2018 sampai 2022</small>
+                            <h3 class="h5">MTsN 1 Polewali Mandar</h3>
+                            <p class="text-body-secondary mb-0">Mulai mengenal organisasi, belajar bekerja dalam tim,
+                                dan menemukan mata pelajaran favorit.</p>
+                            <div><button class="btn btn-outline-primary btn-sm mt-3 btn-gallery" data-level="smp"><i
+                                        class="bi bi-images me-2"></i>Lihat foto MTs</button></div>
+                        </div>
+                    </div>
+                    <div class="position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
+                        <span
+                            class="badge rounded-circle text-bg-primary position-absolute top-0 start-0 translate-middle p-2 fs-6"><i
+                                class="bi bi-pencil-square"></i></span>
+                        <div class="card card-body border-primary-subtle hover-card">
+                            <small class="text-primary fw-semibold">2022 sampai 2025</small>
+                            <h3 class="h5">SMK Negeri 2 Majene</h3>
+                            <p class="text-body-secondary mb-0">Masa belajar menghadapi ujian, menentukan jurusan
+                                kuliah, dan menyiapkan diri hidup lebih mandiri.</p>
+                            <div><button class="btn btn-outline-primary btn-sm mt-3 btn-gallery" data-level="sma"><i
+                                        class="bi bi-images me-2"></i>Lihat foto SMK</button></div>
+                        </div>
+                    </div>
+                    <div class="position-relative border-start border-2 border-primary ps-4 ms-3">
+                        <span
+                            class="badge rounded-circle text-bg-success position-absolute top-0 start-0 translate-middle p-2 fs-6"><i
+                                class="bi bi-mortarboard-fill"></i></span>
+                        <div class="card card-body border-success hover-card">
+                            <small class="text-success fw-semibold">2025 sampai sekarang <span
+                                    class="badge text-bg-success ms-1">Sedang berjalan</span></small>
+                            <h3 class="h5">Universitas Sulawesi Barat, Teknik Informatika</h3>
+                            <p class="text-body-secondary mb-0">Sekarang di semester 3. Belajar pemrograman, membuat
+                                tugas kelompok, dan mencoba hal baru, termasuk membuat halaman ini dengan Bootstrap.</p>
+                            <div><button class="btn btn-outline-success btn-sm mt-3 btn-gallery" data-level="kuliah"><i
+                                        class="bi bi-images me-2"></i>Lihat foto kuliah</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BAGIAN 2: CARD RESPONSIF (1 / 2 / 3 kolom) ============ -->
+    <section id="kepribadian" class="py-5">
+        <div class="container py-lg-4">
+            <div class="mb-4" data-reveal>
+                <h2 class="fw-bold">Kepribadian sebagai mahasiswa</h2>
+                <p class="text-body-secondary mb-0">Klik “Baca selengkapnya” untuk melihat cerita di balik tiap sifat.
+                </p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col">
+                    <article class="card h-100 border-primary-subtle hover-card">
+                        <div class="card-body"><span class="d-inline-flex rounded-3 p-3 fs-3 text-bg-primary mb-3"><i
+                                    class="bi bi-search"></i></span>
+                            <h3 class="h5 card-title">Rasa ingin tahu</h3>
+                            <p class="card-text text-body-secondary">Kalau ada hal baru, saya cari tahu dulu sampai
+                                paham.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3"><button
+                                class="btn btn-primary btn-sm btn-detail" data-title="Rasa ingin tahu"
+                                data-icon="bi-search" data-bg="text-bg-primary"
+                                data-desc="Saya tidak betah menerima jawaban setengah-setengah. Kalau dosen menjelaskan sesuatu yang belum klik, saya cari contoh lain, tonton video, atau coba langsung sampai benar-benar paham.">Baca
+                                selengkapnya</button></div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="card h-100 border-primary-subtle hover-card">
+                        <div class="card-body"><span class="d-inline-flex rounded-3 p-3 fs-3 text-bg-info mb-3"><i
+                                    class="bi bi-people"></i></span>
+                            <h3 class="h5 card-title">Senang kerja kelompok</h3>
+                            <p class="card-text text-body-secondary">Lebih seru kalau tugas dikerjakan bersama.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3"><button
+                                class="btn btn-primary btn-sm btn-detail" data-title="Senang kerja kelompok"
+                                data-icon="bi-people" data-bg="text-bg-info"
+                                data-desc="Saya suka membagi tugas dengan jelas dan mendengarkan ide teman. Bagi saya hasil kelompok terbaik lahir dari obrolan yang jujur, bukan dari satu orang yang mengerjakan semuanya.">Baca
+                                selengkapnya</button></div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="card h-100 border-primary-subtle hover-card">
+                        <div class="card-body"><span class="d-inline-flex rounded-3 p-3 fs-3 text-bg-warning mb-3"><i
+                                    class="bi bi-alarm"></i></span>
+                            <h3 class="h5 card-title">Pejuang tenggat</h3>
+                            <p class="card-text text-body-secondary">Sedang belajar mengatur waktu sebelum deadline
+                                mepet.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3"><button
+                                class="btn btn-primary btn-sm btn-detail" data-title="Pejuang tenggat"
+                                data-icon="bi-alarm" data-bg="text-bg-warning"
+                                data-desc="Jujur saja, kadang saya baru bergerak saat tenggat sudah dekat. Sekarang saya berlatih memecah tugas menjadi bagian kecil dan mencatat jadwal supaya tidak perlu begadang terus.">Baca
+                                selengkapnya</button></div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="card h-100 border-primary-subtle hover-card">
+                        <div class="card-body"><span class="d-inline-flex rounded-3 p-3 fs-3 text-bg-secondary mb-3"><i
+                                    class="bi bi-cup-hot"></i></span>
+                            <h3 class="h5 card-title">Teman setia kopi</h3>
+                            <p class="card-text text-body-secondary">Ide sering datang saat ngopi bareng teman.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3"><button
+                                class="btn btn-primary btn-sm btn-detail" data-title="Teman setia kopi"
+                                data-icon="bi-cup-hot" data-bg="text-bg-secondary"
+                                data-desc="Nongkrong sambil ngopi adalah cara saya melepas penat. Obrolan santai tentang kuliah, bola, dan rencana masa depan sering memberi saya semangat baru.">Baca
+                                selengkapnya</button></div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="card h-100 border-primary-subtle hover-card">
+                        <div class="card-body"><span class="d-inline-flex rounded-3 p-3 fs-3 text-bg-danger mb-3"><i
+                                    class="bi bi-heart"></i></span>
+                            <h3 class="h5 card-title">Setia pada pilihan</h3>
+                            <p class="card-text text-body-secondary">Sekali percaya, saya bertahan, termasuk soal tim
+                                favorit.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3"><button
+                                class="btn btn-primary btn-sm btn-detail" data-title="Setia pada pilihan"
+                                data-icon="bi-heart" data-bg="text-bg-danger"
+                                data-desc="Saya tidak mudah berpindah. Entah itu teman, kebiasaan baik, atau klub sepak bola, saya memilih bertahan dan ikut berproses, bukan hanya hadir saat sedang di atas.">Baca
+                                selengkapnya</button></div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="card h-100 border-primary-subtle hover-card">
+                        <div class="card-body"><span class="d-inline-flex rounded-3 p-3 fs-3 text-bg-success mb-3"><i
+                                    class="bi bi-rocket-takeoff"></i></span>
+                            <h3 class="h5 card-title">Mau terus berkembang</h3>
+                            <p class="card-text text-body-secondary">Tidak malu bertanya, tidak takut salah.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3"><button
+                                class="btn btn-primary btn-sm btn-detail" data-title="Mau terus berkembang"
+                                data-icon="bi-rocket-takeoff" data-bg="text-bg-success"
+                                data-desc="Saya sadar masih banyak yang belum saya kuasai. Karena itu saya berani bertanya, menerima kritik, dan mencoba lagi setiap kali gagal. Tiap semester saya ingin sedikit lebih baik dari sebelumnya.">Baca
+                                selengkapnya</button></div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FANS MANCHESTER UNITED ============ -->
+    <section id="fans-mu" class="py-5 bg-danger-subtle">
+        <div class="container py-lg-4">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-reveal>
+                    <span class="badge rounded-pill text-bg-danger fs-6 fw-normal px-3 py-2"><i
+                            class="bi bi-trophy-fill me-1"></i>Red Devils sejak kecil</span>
+                    <h2 class="fw-bold mt-3">Fans Manchester United, dari kecil sampai sekarang</h2>
+                    <p class="text-body-secondary">Saya sudah mendukung Manchester United sejak kecil, jauh sebelum saya
+                        paham taktik atau nama-nama pemain. Waktu itu saya hanya tahu bahwa warna merah itu membuat saya
+                        senang.</p>
+                    <p class="text-body-secondary">Sampai sekarang, di tengah kuliah dan tugas yang menumpuk, saya masih
+                        menyempatkan diri menonton pertandingannya. Menang atau kalah, saya tetap mendukung.</p>
+                    <button id="cheer" class="btn btn-danger rounded-pill px-4"><i
+                            class="bi bi-hand-thumbs-up-fill me-2"></i>Dukung MU <span id="cheerCount"
+                            class="badge text-bg-dark ms-1">0</span></button>
+                    <small class="d-block text-body-secondary mt-2" id="cheerMsg">Klik tombolnya untuk ikut
+                        mendukung.</small>
+                </div>
+                <div class="col-lg-6" data-reveal>
+                    <div class="card bg-transparent border-danger border-start border-4 mb-3 hover-card">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold">Masa kecil</h3>
+                            <p class="mb-0 text-body-secondary">Pertama kali kenal MU dan langsung jatuh hati pada warna
+                                merahnya.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border-danger border-start border-4 mb-3 hover-card">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold">Masa sekolah</h3>
+                            <p class="mb-0 text-body-secondary">Menghafal nama pemain, ikut nonton bareng, dan berdebat
+                                soal bola dengan teman.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border-danger border-start border-4 hover-card">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold">Masa kuliah</h3>
+                            <p class="mb-0 text-body-secondary">Tetap setia menonton di sela jadwal kuliah, dan jadi
+                                bahan obrolan paling seru di kantin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BAGIAN 3: FORM KONTAK ============ -->
+    <section id="kontak" class="py-5">
+        <div class="container py-lg-4">
+            <div class="row g-5">
+                <div class="col-lg-5" data-reveal>
+                    <h2 class="fw-bold">Mau kenalan atau ngobrol bola?</h2>
+                    <p class="text-body-secondary">Kirim pesan singkat, saya biasanya membalas dalam satu hari. Boleh
+                        soal kuliah, kerja kelompok, atau sekadar menebak skor MU akhir pekan ini.</p>
+                    <ul class="list-unstyled mt-4 text-body-secondary">
+                        <li class="mb-3"><i class="bi bi-envelope text-primary me-3"></i>abdalpalalo92@gmail.com</li>
+                        <li class="mb-3"><i class="bi bi-geo-alt text-primary me-3"></i>Jl. Korban 40.000 jiwa
+                        </li>
+                        <li><i class="bi bi-mortarboard text-primary me-3"></i>Universitas Sulawesi Barat, Teknik
+                            Informatika
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-7" data-reveal>
+                    <form id="contactForm" class="card card-body p-4 border-primary-subtle" novalidate>
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="nama" required minlength="3" autocomplete="name"
+                                placeholder="Nama lengkap">
+                            <div class="invalid-feedback">Nama wajib diisi, minimal 3 huruf.</div>
+                            <div class="valid-feedback">Terima kasih, nama sudah sesuai.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required autocomplete="email"
+                                placeholder="nama@email.com">
+                            <div class="invalid-feedback">Masukkan alamat email yang valid, contoh: nama@email.com.
+                            </div>
+                            <div class="valid-feedback">Email terlihat benar.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pesan" class="form-label d-flex justify-content-between">Pesan <small
+                                    class="text-body-secondary" id="count">0 / 300</small></label>
+                            <textarea class="form-control" id="pesan" rows="5" required minlength="10" maxlength="300"
+                                placeholder="Tulis pesanmu di sini"></textarea>
+                            <div class="invalid-feedback">Pesan minimal 10 karakter agar saya bisa memahami maksudmu.
+                            </div>
+                            <div class="valid-feedback">Pesan siap dikirim.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100"><span
+                                class="spinner-border spinner-border-sm me-2 d-none" role="status"
+                                aria-hidden="true"></span><span class="label">Kirim pesan</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-body-tertiary border-top py-4">
+        <div class="container d-flex flex-wrap justify-content-between gap-2 text-body-secondary">
+            <span>© <span id="year"></span> Ahmad Abdal Palalo. Dibuat dengan Bootstrap 5.</span>
+            <a href="#beranda" class="link-secondary text-decoration-none">Kembali ke atas <i
+                    class="bi bi-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <button id="toTop" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 d-none"
+        aria-label="Kembali ke atas"><i class="bi bi-chevron-up"></i></button>
+
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+        <div id="okToast" class="toast align-items-center text-bg-success border-0" role="status" aria-live="polite">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMsg">Pesan terkirim.</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Tutup"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ BAGIAN 4: DIALOG POPUP ============ -->
+    <div class="modal fade" id="idModal" tabindex="-1" aria-labelledby="idTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="idTitle"><i class="bi bi-person-vcard me-2"></i>Kartu identitas</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary text-white fw-bold"><i
+                                class="bi bi-mortarboard-fill me-2"></i>Kartu Mahasiswa</div>
+                        <div class="card-body">
+                            <div class="row g-3 align-items-start">
+                                <div class="col-4">
+                                    <div class="ratio ratio-1x1 rounded-3 overflow-hidden bg-primary photo-slot"
+                                        data-photo="profil">
+                                        <span
+                                            class="d-flex align-items-center justify-content-center display-5 fw-bold text-white">T</span>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <dl class="mb-0 small">
+                                        <dt class="text-body-secondary fw-normal">Nama</dt>
+                                        <dd class="fw-semibold">Ahmad Abdal Palalo</dd>
+                                        <dt class="text-body-secondary fw-normal">Usia</dt>
+                                        <dd class="fw-semibold">20 tahun</dd>
+                                        <dt class="text-body-secondary fw-normal">Program studi</dt>
+                                        <dd class="fw-semibold">Teknik Informatika, semester 3</dd>
+                                        <dt class="text-body-secondary fw-normal">Alamat</dt>
+                                        <dd class="fw-semibold">Jl. Korban 40.000 jiwa Kecamatan Tinambung, Kabupaten
+                                            Polewali Mandar</dd>
+                                        <dt class="text-body-secondary fw-normal">Tim favorit</dt>
+                                        <dd class="fw-semibold mb-0">Manchester United</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <a href="#kontak" class="btn btn-primary" data-bs-dismiss="modal">Hubungi saya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="dmTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content overflow-hidden">
+                <div id="dmThumb"></div>
+                <div class="modal-header border-0 pb-0">
+                    <h2 class="modal-title h5" id="dmTitle"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-0" id="dmDesc"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="galModal" tabindex="-1" aria-labelledby="galTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h2 class="modal-title h5" id="galTitle"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body pt-0" id="galBody"></div>
+                <div class="modal-footer border-0 justify-content-between">
+                    <span class="text-body-secondary small" id="galCount"></span>
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>window.bootstrap || document.write('<script src="lib/bootstrap.bundle.min.js"><\/script>')</script>
+    <script src="script.js"></script>
+</body>
+
+</html>
