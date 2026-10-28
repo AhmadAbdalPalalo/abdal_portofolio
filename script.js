@@ -1,9 +1,16 @@
+/* ==================== LEGENDA KOMENTAR ====================
+   [BOOTSTRAP JS] = baris yang memakai JavaScript/API Bootstrap (objek "bootstrap.*")
+   [BOOTSTRAP CSS] = baris JavaScript yang menambah/melepas KELAS Bootstrap (d-none, fade, show, is-valid, invisible, dll)
+   [CUSTOM] = logika buatan sendiri (bukan fitur Bootstrap)
+   Catatan: Bootstrap JS dimuat dari index.html (bootstrap.bundle.min.js) SEBELUM file ini, sehingga objek "bootstrap" bisa dipakai di sini.
+   ========================================================== */
 /* ==========================================================
    PENGATURAN FOTO. Ubah nama file dan keterangan di sini.
    Semua file foto ditaruh di folder "foto/".
    Hapus satu baris { src, ket } untuk mengurangi foto,
    atau salin satu baris untuk menambah foto.
    ========================================================== */
+// [CUSTOM] daftar foto (diatur manual)
 const FOTO = {
     profil: 'foto/profil.jpeg', // dipakai di Beranda, Tentang, dan kartu identitas
     galeri: {
@@ -43,10 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const $$ = (s, c = document) => [...c.querySelectorAll(s)];
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // [CUSTOM] + [BOOTSTRAP CSS]: pasang foto; kelas 'object-fit-cover' dan 'invisible' berasal dari Bootstrap
     // Foto profil di semua tempat. Jika file tidak ada, huruf/ikon awal tetap tampil.
     $$('.photo-slot').forEach(slot => {
         const img = new Image();
-        img.alt = 'Foto Tahira';
+        img.alt = 'Foto Abdal';
         img.className = 'object-fit-cover';
         img.addEventListener('load', () => {
             $$(':scope > span, :scope > i', slot).forEach(e => e.classList.add('invisible'));
@@ -55,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = FOTO[slot.dataset.photo];
     });
 
+    // [CUSTOM] GALERI FOTO: membangun Bootstrap Carousel dari daftar FOTO.galeri
     // Galeri foto pendidikan
     const gal = $('#galModal'), galBody = $('#galBody'), galCount = $('#galCount');
     const missing = src => {
@@ -92,26 +101,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const setInfo = i => galCount.textContent = `Foto ${i + 1} dari ${g.foto.length}: ${g.foto[i].ket}`;
             setInfo(0);
             car.addEventListener('slid.bs.carousel', e => setInfo(e.to));
+            // [BOOTSTRAP JS] Carousel: mengaktifkan geser foto (tombol prev/next, swipe di HP, keyboard)
             new bootstrap.Carousel(car, { ride: false, touch: true });
         }
+        // [BOOTSTRAP JS] Modal: membuka dialog galeri dari JavaScript
         bootstrap.Modal.getOrCreateInstance(gal).show();
     }));
 
     $('#year').textContent = new Date().getFullYear();
 
+    // [BOOTSTRAP CSS] 'd-none' = kelas Bootstrap untuk menyembunyikan elemen; di sini ditambah/dilepas saat scroll
     // Tombol kembali ke atas
     const toTop = $('#toTop');
     addEventListener('scroll', () => toTop.classList.toggle('d-none', scrollY < 600), { passive: true });
     toTop.addEventListener('click', () => scrollTo({ top: 0 }));
 
+    // [BOOTSTRAP JS] Collapse: menutup menu burger lewat kode
     // Tutup menu burger setelah link diklik (mobile)
     const menu = $('#nav');
     $$('.nav-link, .btn', menu).forEach(a => a.addEventListener('click', () => {
         if (menu.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(menu).hide();
     }));
 
+    // [CUSTOM] efek mengetik; [BOOTSTRAP CSS] 'opacity-0' membuat tanda | berkedip
     // Efek mengetik di hero
-    const words = ['seorang mahasiswa', 'fans Manchester United', 'pembelajar yang penasaran'];
+    const words = ['seorang mahasiswa baik', 'fans King Emyu', 'Pria sejati juga Setia'];
     const typed = $('#typed'), caret = $('#caret');
     let w = 0, c = 0, del = false;
     setInterval(() => caret.classList.toggle('opacity-0'), 500);
@@ -125,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(tick, del ? 45 : 90);
     })();
 
+    // [BOOTSTRAP CSS] kelas 'fade' dan 'show' (transisi opacity bawaan Bootstrap) + [CUSTOM] IntersectionObserver & hitung angka
     // Muncul perlahan saat di-scroll (memakai kelas fade/show bawaan Bootstrap) + hitung angka
     const countUp = el => {
         const target = +el.dataset.count, suf = el.dataset.suffix || '';
@@ -144,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }), { threshold: .15 });
     $$('[data-reveal]').forEach(el => { el.classList.add('fade'); io.observe(el); });
 
+    // [BOOTSTRAP CSS] 'shadow-lg' = kelas bayangan Bootstrap, ditambah saat kursor menyentuh kartu
     // Efek bayangan saat kartu disentuh kursor
     $$('.hover-card').forEach(card => {
         const on = () => card.classList.add('shadow-lg');
@@ -160,9 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#dmDesc').textContent = d.desc;
         $('#dmThumb').className = 'd-flex align-items-center justify-content-center py-5 fs-1 ' + d.bg;
         $('#dmThumb').innerHTML = '<i class="bi ' + d.icon + '"></i>';
+        // [BOOTSTRAP JS] Modal: membuka dialog detail kepribadian
         bootstrap.Modal.getOrCreateInstance(dm).show();
     }));
 
+    // [CUSTOM] tombol hitung dukungan MU (bukan fitur Bootstrap)
     // Tombol dukung MU
     let cheers = 0;
     const cheer = $('#cheer'), cc = $('#cheerCount'), cm = $('#cheerMsg');
@@ -172,8 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cm.textContent = cheers % 5 === 0 ? 'Luar biasa, ' + cheers + ' dukungan untuk MU!' : msgs[cheers % msgs.length];
     });
 
+    // [BOOTSTRAP CSS + JS] VALIDASI FORM: 'is-valid' / 'is-invalid' memunculkan .valid-feedback / .invalid-feedback bawaan Bootstrap;
+    // 'd-none' menyembunyikan spinner; bootstrap.Toast menampilkan notifikasi sukses
     // Validasi form + umpan balik
     const form = $('#contactForm'), pesan = $('#pesan'), count = $('#count');
+    // [BOOTSTRAP JS] Toast: objek notifikasi (ditampilkan nanti dengan toast.show())
     const toast = bootstrap.Toast.getOrCreateInstance($('#okToast'), { delay: 4500 });
     pesan.addEventListener('input', () => count.textContent = `${pesan.value.length} / 300`);
 
@@ -198,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.disabled = true; spin.classList.remove('d-none'); label.textContent = 'Mengirim...';
         setTimeout(() => {
             $('#toastMsg').textContent = `Terima kasih, ${$('#nama').value.trim()}! Pesanmu sudah terkirim.`;
-            toast.show();
+            toast.show(); // [BOOTSTRAP JS] tampilkan Toast
             form.reset();
             fields.forEach(f => f.classList.remove('is-valid', 'is-invalid'));
             count.textContent = '0 / 300';
