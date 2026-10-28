@@ -1,6 +1,11 @@
+/* ==================== LEGENDA KOMENTAR ====================
+   [BOOTSTRAP] = aturan yang MENIMPA/MENGUBAH tampilan kelas atau variabel bawaan Bootstrap (nama kelasnya dari Bootstrap)
+   [CUSTOM]    = aturan untuk kelas buatan sendiri (nama kelas bukan dari Bootstrap)
+   ========================================================== */
 /* Lapisan percantik OPSIONAL di atas Bootstrap.
    Struktur dan tata letak tetap dari Bootstrap. Hapus baris <link href="style.css">
    di index.html kalau ingin kembali ke tampilan Bootstrap murni. */
+/* [BOOTSTRAP] menimpa variabel warna & font bawaan Bootstrap (--bs-body-bg, --bs-tertiary-bg, --bs-primary-bg-subtle, --bs-body-font-family) */
 [data-bs-theme=dark] {
     --bs-body-bg: #050d1f;
     --bs-body-bg-rgb: 5, 13, 31;
@@ -26,6 +31,7 @@ html {
     scroll-padding-top: 70px
 }
 
+/* [BOOTSTRAP] menimpa tampilan .navbar dan .nav-link.active bawaan Bootstrap */
 .navbar {
     background: rgba(5, 13, 31, .82) !important;
     backdrop-filter: blur(14px)
@@ -36,6 +42,7 @@ html {
     box-shadow: inset 0 -2px 0 var(--bs-primary)
 }
 
+/* [CUSTOM] latar gradasi per bagian (dipilih lewat id #beranda, #fans-mu, #pendidikan) */
 #beranda {
     background: radial-gradient(900px 520px at 85% 10%, rgba(30, 123, 255, .25), transparent 60%), radial-gradient(600px 400px at 0% 100%, rgba(30, 123, 255, .12), transparent 60%), #050d1f !important
 }
@@ -48,7 +55,7 @@ html {
     background: linear-gradient(180deg, #08183a, #050d1f) !important
 }
 
-/* tombol */
+/* [BOOTSTRAP] menimpa variabel tombol bawaan (.btn-primary, .btn-danger, .btn-outline-secondary) */
 .btn-primary {
     --bs-btn-bg: #1e7bff;
     --bs-btn-border-color: #1e7bff;
@@ -83,7 +90,7 @@ html {
     color: #fff
 }
 
-/* foto bulat: cincin putus-putus berputar + cahaya */
+/* [CUSTOM] FOTO BULAT: .ring-wrap = cincin putus-putus berputar + cahaya di sekeliling foto (dipasang di elemen Bootstrap rounded-circle) */
 .ring-wrap {
     position: relative;
     box-shadow: 0 30px 80px -30px rgba(30, 123, 255, .8)
@@ -115,26 +122,51 @@ html {
     }
 }
 
-.float-chip {
-    animation: float 5s ease-in-out infinite;
+/* [CUSTOM] ORBIT: tiga badge (Mahasiswa, Fans MU, Suka belajar) berputar mengelilingi foto.
+   .orbit berputar 360 derajat; .orbit-badge berputar balik di waktu yang sama sehingga teks tetap tegak.
+   .orbit-1/2/3 = posisi awal masing-masing badge pada lingkaran (atas, kanan bawah, kiri bawah, selang 120 derajat).
+   Badge-nya sendiri memakai kelas Bootstrap (badge, rounded-pill, text-bg-dark, border). */
+.orbit {
+    inset: -16px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    animation: spin 30s linear infinite
+}
+
+.orbit-item {
+    width: max-content
+}
+
+.orbit-1 {
+    top: 0;
+    left: 50%
+}
+
+.orbit-2 {
+    top: 75%;
+    left: 93.3%
+}
+
+.orbit-3 {
+    top: 75%;
+    left: 6.7%
+}
+
+.orbit-badge {
+    display: inline-block;
+    white-space: nowrap;
     backdrop-filter: blur(8px);
-    z-index: 2
+    animation: unspin 30s linear infinite
 }
 
-.float-chip:nth-of-type(2) {
-    animation-delay: -1.6s
-}
-
-.float-chip:nth-of-type(3) {
-    animation-delay: -3.2s
-}
-
-@keyframes float {
-    50% {
-        translate: 0 -10px
+@keyframes unspin {
+    to {
+        rotate: -360deg
     }
 }
 
+/* [CUSTOM] titik hijau berdenyut di badge hero */
 .pulse {
     animation: pulse 2s infinite;
     border-radius: 50%
@@ -151,7 +183,7 @@ html {
     }
 }
 
-/* strip berjalan: teks besar samar tanpa kotak, gerak otomatis, berhenti saat di-hover */
+/* [CUSTOM] STRIP BERJALAN (.marquee/.track). Kata-katanya memakai badge Bootstrap yang gayanya ditimpa di sini. Strip berjalan: teks besar samar tanpa kotak, gerak otomatis, berhenti saat di-hover */
 .marquee {
     overflow: hidden;
     mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)
@@ -190,7 +222,7 @@ html {
     }
 }
 
-/* kartu, muncul perlahan */
+/* [CUSTOM] .hover-card (efek terangkat), [data-reveal] (muncul perlahan, memakai kelas fade/show Bootstrap) + [BOOTSTRAP] penyesuaian .card, .modal-content, .form-control */
 .hover-card {
     transition: transform .3s, box-shadow .3s, border-color .3s
 }
@@ -261,7 +293,7 @@ html {
     }
 }
 
-/* ===== Penyempurnaan: tampilan lebih lembut (sudut membulat, garis tipis, bayangan halus) ===== */
+/* [BOOTSTRAP] ===== Penyempurnaan: tampilan lebih lembut (sudut membulat, garis tipis, bayangan halus) ===== */
 html[data-bs-theme=dark] {
     --bs-body-bg: #050d1f;
     --bs-body-bg-rgb: 5, 13, 31;
