@@ -1,26 +1,49 @@
 <!DOCTYPE html>
+<!--
+  ==================== LEGENDA KOMENTAR ====================
+  [BOOTSTRAP]        = bagian yang memakai Bootstrap 5.3.3 (kelas, komponen, atau atribut data-bs-*)
+  [BOOTSTRAP ICONS]  = ikon bi bi-... (pustaka ikon resmi pelengkap Bootstrap)
+  [CUSTOM]           = buatan sendiri, bukan Bootstrap (ada di style.css atau script.js)
+  Catatan: atribut data-bs-theme="dark" pada tag <html> = [BOOTSTRAP] mode gelap bawaan Bootstrap 5.3
+  ==========================================================
+-->
 <html lang="id" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Abdal | Mahasiswa dan Fans Manchester United</title>
+    <title>Abdal | Mahasiswa dan Fans King Emyu</title>
     <meta name="description"
         content="Portofolio pribadi Abdal: identitas, riwayat pendidikan, kepribadian sebagai mahasiswa, dan kecintaan pada Manchester United.">
-    <!-- Hanya Bootstrap (tanpa file CSS buatan sendiri) -->
+    <!-- [BOOTSTRAP] CSS Bootstrap 5.3.3 dari CDN. Ini sumber semua kelas: container, row, col-*, navbar, card, btn, badge, modal, dll. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- [BOOTSTRAP ICONS] pustaka ikon (bi bi-...) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- [CUSTOM] font Google (Sora, DM Sans), bukan bagian Bootstrap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Cadangan offline: dipakai otomatis jika file ada di folder lib/ (lihat lib/BACA-SAYA.txt) -->
     <link href="lib/bootstrap.min.css" rel="stylesheet">
     <link href="lib/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- [CUSTOM] style.css = lapisan percantik di atas Bootstrap (bukan bagian Bootstrap). Hapus baris ini untuk kembali ke Bootstrap murni -->
+    <link href="style.css" rel="stylesheet">
 </head>
+<!-- [BOOTSTRAP] SCROLLSPY: atribut data-bs-spy="scroll", data-bs-target="#nav", data-bs-offset di tag <body> membuat link menu otomatis aktif sesuai bagian yang sedang dilihat -->
 
 <body data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="100" tabindex="0">
 
     <!-- ============ BAGIAN 1: NAVBAR BURGER + HERO ============ -->
+    <!-- [BOOTSTRAP] KOMPONEN NAVBAR
+     navbar + navbar-expand-lg = menu jadi burger di bawah 992px | sticky-top = menempel di atas saat scroll
+     container = pembatas lebar | navbar-brand = logo/nama | navbar-toggler + navbar-toggler-icon = tombol burger
+     collapse navbar-collapse = isi menu yang buka-tutup (data-bs-toggle="collapse" data-bs-target="#nav")
+     navbar-nav, nav-item, nav-link = daftar menu | mx-auto, mt-2, mt-lg-0 = utilitas jarak/posisi
+     btn btn-primary rounded-pill = tombol CTA di navbar -->
     <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary border-bottom">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#beranda"><span class="badge text-bg-primary me-1">AAP</span>Ahmad
+            <a class="navbar-brand fw-bold" href="#beranda"><span class="badge text-bg-primary me-1">AAP</span> Ahmad
                 Abdal Palalo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
                 aria-controls="nav" aria-expanded="false" aria-label="Buka menu">
@@ -32,7 +55,7 @@
                     <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pendidikan">Pendidikan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kepribadian">Kepribadian</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#fans-mu">Fans MU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fans-mu">Fans King Emyu</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
                 </ul>
                 <a href="#kontak" class="btn btn-primary rounded-pill mt-2 mt-lg-0">Ayo kenalan</a>
@@ -40,15 +63,20 @@
         </div>
     </nav>
 
+    <!-- [BOOTSTRAP] HERO: bg-primary-subtle (latar), py-5 (jarak atas-bawah), container
+     GRID: row > col-lg-6 (2 kolom di laptop, menumpuk di HP), order-1 / order-lg-2 (urutan), g-5 (jarak antar kolom), align-items-center
+     TEKS: display-4, fw-bold, lead, text-body-secondary, text-primary | TOMBOL CTA: btn btn-primary btn-lg rounded-pill, btn-outline-light
+     BADGE: badge rounded-pill text-bg-dark | d-flex, flex-wrap, gap-3 = susunan tombol -->
     <header id="beranda" class="bg-primary-subtle py-5">
         <div class="container py-lg-4">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 order-2 order-lg-1">
                     <span class="badge rounded-pill text-bg-dark border border-primary fw-normal fs-6 px-3 py-2"><i
-                            class="bi bi-circle-fill text-success me-2 small"></i>Mahasiswa aktif dan fans MU
-                        sejati</span>
-                    <h1 class="display-4 fw-bold mt-3">Halo, saya Abdal Palalo.<br><span class="text-primary">Saya <span
-                                id="typed"></span><span id="caret">|</span></span></h1>
+                            class="bi bi-circle-fill text-success me-2 small pulse"></i>Mahasiswa aktif dan fans King
+                        Emyu
+                        sejak kecil</span>
+                    <h1 class="display-4 fw-bold mt-3">Halo, saya Abdal.<br><span class="text-primary">Saya
+                            <span id="typed"></span><span id="caret">|</span></span></h1>
                     <p class="lead text-body-secondary mt-3">Mahasiswa yang suka belajar hal baru, senang ngobrol soal
                         sepak bola, dan sudah mendukung Manchester United sejak masih kecil. Halaman ini berisi cerita
                         singkat tentang saya.</p>
@@ -67,49 +95,71 @@
                         <a href="https://www.tiktok.com/@abdalpalalo?is_from_webapp=1&sender_device=pc"
                             class="btn btn-outline-secondary rounded-circle" aria-label="TikTok"><i
                                 class="bi bi-tiktok"></i></a>
-                        <a href="https://github.com/AhmadAbdalPalalo?tab=overview&from=2026-10-01&to=2026-10-27"
-                            class="btn btn-outline-secondary rounded-circle" aria-label="GitHub"><i
-                                class="bi bi-github"></i></a>
+                        <a href="https://github.com/AhmadAbdalPalalo" class="btn btn-outline-secondary rounded-circle"
+                            aria-label="GitHub"><i class="bi bi-github"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-6 order-1 order-lg-2">
-                    <!-- Foto profil bulat. Nama file diatur di script.js (bagian FOTO), file ditaruh di folder foto/ -->
+
+                    <!-- FOTO PROFIL BULAT. Nama file diatur di script.js (bagian FOTO), file ditaruh di folder foto/
+             [BOOTSTRAP] position-relative, w-75, mx-auto (wadah di tengah), rounded-circle + border + border-primary + p-2 (garis tipis melingkar),
+                         ratio ratio-1x1 (kotak 1:1), overflow-hidden (potong jadi bulat), bg-primary
+             [CUSTOM]    ring-wrap (cincin putus-putus berputar, di style.css) dan photo-slot (penanda agar script.js memasang foto) -->
                     <div class="position-relative w-75 mx-auto">
-                        <div class="rounded-circle border border-primary p-2">
+                        <div class="ring-wrap rounded-circle border border-primary p-2">
                             <div class="ratio ratio-1x1 rounded-circle overflow-hidden bg-primary photo-slot"
                                 data-photo="profil">
                                 <span
                                     class="d-flex align-items-center justify-content-center display-1 fw-bold text-white">T</span>
                             </div>
                         </div>
-                        <span
-                            class="badge rounded-pill text-bg-dark border border-primary position-absolute top-0 start-0 fs-6 fw-normal"><i
-                                class="bi bi-mortarboard-fill text-primary me-1"></i>Mahasiswa</span>
-                        <span
-                            class="badge rounded-pill text-bg-dark border border-danger position-absolute top-50 end-0 translate-middle-y fs-6 fw-normal"><i
-                                class="bi bi-trophy-fill text-danger me-1"></i>Fans MU</span>
-                        <span
-                            class="badge rounded-pill text-bg-dark border border-primary position-absolute bottom-0 start-0 fs-6 fw-normal"><i
-                                class="bi bi-lightbulb-fill text-warning me-1"></i>Suka belajar</span>
+                        <!-- [BOOTSTRAP + CUSTOM] ORBIT: tiga badge berputar mengelilingi foto.
+               [BOOTSTRAP] position-absolute, translate-middle, badge, rounded-pill, text-bg-dark, border, border-primary/border-danger, fs-6, fw-normal
+               [CUSTOM]    orbit, orbit-item, orbit-1/2/3, orbit-badge = animasi putar ada di style.css (bagian ORBIT) -->
+                        <div class="orbit position-absolute">
+                            <div class="orbit-item orbit-1 position-absolute translate-middle"><span
+                                    class="orbit-badge badge rounded-pill text-bg-dark border border-primary fs-6 fw-normal"><i
+                                        class="bi bi-mortarboard-fill text-primary me-1"></i>Mahasiswa</span></div>
+                            <div class="orbit-item orbit-2 position-absolute translate-middle"><span
+                                    class="orbit-badge badge rounded-pill text-bg-dark border border-danger fs-6 fw-normal"><i
+                                        class="bi bi-trophy-fill text-danger me-1"></i>Fans King Emyu</span></div>
+                            <div class="orbit-item orbit-3 position-absolute translate-middle"><span
+                                    class="orbit-badge badge rounded-pill text-bg-dark border border-primary fs-6 fw-normal"><i
+                                        class="bi bi-lightbulb-fill text-warning me-1"></i>Suka belajar</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- STRIP TEKS BERJALAN
+     [BOOTSTRAP] bg-body-tertiary, border-top, border-bottom, py-3, badge, rounded-pill
+     [CUSTOM]    marquee dan track = animasi berjalan (style.css bagian "strip berjalan") -->
     <section class="py-3 bg-body-tertiary border-top border-bottom" aria-label="Hal yang saya suka">
-        <div class="container d-flex flex-wrap justify-content-center gap-2">
-            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Manchester United</span>
-            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Red Devils</span>
-            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Old Trafford</span>
-            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Mahasiswa</span>
-            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Kopi dan begadang</span>
-            <span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Selalu penasaran</span>
+        <div class="marquee">
+            <div class="track"><span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Manchester
+                    United</span><span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Red
+                    Devils</span><span class="badge rounded-pill text-bg-dark border fw-normal fs-6">Old
+                    Trafford</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Mahasiswa</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Pecinta King Emyu</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Baik Hati</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Manchester United</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Red Devils</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Old Trafford</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Mahasiswa</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Pecinta King Emyu</span><span
+                    class="badge rounded-pill text-bg-dark border fw-normal fs-6">Baik Hati</span></div>
         </div>
     </section>
 
     <!-- ============ TENTANG + IDENTITAS ============ -->
+    <!-- [BOOTSTRAP] TENTANG: GRID row > col-lg-5 + col-lg-7 | card, card-body, ratio ratio-1x1 (foto) | btn btn-outline-primary w-100
+     DAFTAR IDENTITAS: dl row > dt col-sm-4 + dd col-sm-8 | STATISTIK: row g-3 > col-4 > card card-body text-center
+     TOMBOL POPUP: data-bs-toggle="modal" data-bs-target="#idModal" (membuka modal tanpa JavaScript tambahan)
+     [CUSTOM] data-reveal (muncul perlahan), data-count (angka naik), hover-card (efek hover), photo-slot -->
     <section id="tentang" class="py-5">
         <div class="container py-lg-4">
             <div class="row align-items-center g-5">
@@ -143,11 +193,10 @@
                         <dt class="col-sm-4 text-body-secondary">Status</dt>
                         <dd class="col-sm-8 fw-semibold">Mahasiswa semester 3</dd>
                         <dt class="col-sm-4 text-body-secondary">Email</dt>
-                        <dd class="col-sm-8 fw-semibold">abdalpalalo92.com</dd>
+                        <dd class="col-sm-8 fw-semibold">abdalpalalo92@gmail.com</dd>
                         <dt class="col-sm-4 text-body-secondary">Alamat</dt>
-                        <dd class="col-sm-8 fw-semibold mb-0">Jl. Korban 40.00 jiwa, Kecamatan Tinambung, Kabupaten
-                            Polewali
-                            Mandar, Provinsi
+                        <dd class="col-sm-8 fw-semibold mb-0">Jl. Korban 40.000 Jiwa, Kecamatan Tinambung, Kabupaten
+                            Majene, Provinsi
                             Sulawesi Barat</dd>
                     </dl>
 
@@ -165,7 +214,7 @@
                         <div class="col-4">
                             <div class="card card-body text-center border-primary-subtle py-3 hover-card"><b
                                     class="fs-3" data-count="14" data-suffix=" th">0</b><small
-                                    class="text-body-secondary">Jadi fans MU</small></div>
+                                    class="text-body-secondary">Jadi fans King Emyu</small></div>
                         </div>
                     </div>
                     <a href="#kontak" class="btn btn-primary rounded-pill px-4">Mulai ngobrol <i
@@ -176,6 +225,11 @@
     </section>
 
     <!-- ============ RIWAYAT PENDIDIKAN ============ -->
+    <!-- [BOOTSTRAP] PENDIDIKAN (garis waktu dibuat dari utilitas Bootstrap): row > col-lg-8 mx-auto
+     tiap jenjang: position-relative border-start border-2 border-primary ps-4 pb-4 ms-3 (garis vertikal)
+     titik ikon: badge rounded-circle text-bg-primary position-absolute top-0 start-0 translate-middle
+     isi: card card-body | tombol foto: btn btn-outline-primary btn-sm
+     [CUSTOM] timeline-item, btn-gallery (membuka modal galeri lewat script.js), data-level -->
     <section id="pendidikan" class="py-5 bg-primary-subtle">
         <div class="container py-lg-4">
             <div class="text-center mb-5" data-reveal>
@@ -185,55 +239,55 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto" data-reveal>
                     <!-- GANTI nama sekolah dan tahun dengan data aslimu -->
-                    <div class="position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
+                    <div class="timeline-item position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
                         <span
                             class="badge rounded-circle text-bg-primary position-absolute top-0 start-0 translate-middle p-2 fs-6"><i
                                 class="bi bi-backpack2"></i></span>
                         <div class="card card-body border-primary-subtle hover-card">
-                            <small class="text-primary fw-semibold">2012 sampai 2018</small>
-                            <h3 class="h5">SD Negeri 018 Lombok</h3>
+                            <small class="text-primary fw-semibold">2013 sampai 2019</small>
+                            <h3 class="h5">SDN 018 Lombok</h3>
                             <p class="text-body-secondary mb-0">Tempat saya belajar membaca, berhitung, dan pertama kali
                                 jatuh cinta pada sepak bola saat jam istirahat.</p>
                             <div><button class="btn btn-outline-primary btn-sm mt-3 btn-gallery" data-level="sd"><i
                                         class="bi bi-images me-2"></i>Lihat foto SD</button></div>
                         </div>
                     </div>
-                    <div class="position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
+                    <div class="timeline-item position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
                         <span
                             class="badge rounded-circle text-bg-primary position-absolute top-0 start-0 translate-middle p-2 fs-6"><i
                                 class="bi bi-book"></i></span>
                         <div class="card card-body border-primary-subtle hover-card">
-                            <small class="text-primary fw-semibold">2018 sampai 2022</small>
-                            <h3 class="h5">MTsN 1 Polewali Mandar</h3>
+                            <small class="text-primary fw-semibold">2019 sampai 2022</small>
+                            <h3 class="h5">MTsN 1 Tinambung</h3>
                             <p class="text-body-secondary mb-0">Mulai mengenal organisasi, belajar bekerja dalam tim,
                                 dan menemukan mata pelajaran favorit.</p>
                             <div><button class="btn btn-outline-primary btn-sm mt-3 btn-gallery" data-level="smp"><i
                                         class="bi bi-images me-2"></i>Lihat foto MTs</button></div>
                         </div>
                     </div>
-                    <div class="position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
+                    <div class="timeline-item position-relative border-start border-2 border-primary ps-4 pb-4 ms-3">
                         <span
                             class="badge rounded-circle text-bg-primary position-absolute top-0 start-0 translate-middle p-2 fs-6"><i
                                 class="bi bi-pencil-square"></i></span>
                         <div class="card card-body border-primary-subtle hover-card">
                             <small class="text-primary fw-semibold">2022 sampai 2025</small>
-                            <h3 class="h5">SMK Negeri 2 Majene</h3>
+                            <h3 class="h5">SMKN 2 Majene</h3>
                             <p class="text-body-secondary mb-0">Masa belajar menghadapi ujian, menentukan jurusan
                                 kuliah, dan menyiapkan diri hidup lebih mandiri.</p>
                             <div><button class="btn btn-outline-primary btn-sm mt-3 btn-gallery" data-level="sma"><i
                                         class="bi bi-images me-2"></i>Lihat foto SMK</button></div>
                         </div>
                     </div>
-                    <div class="position-relative border-start border-2 border-primary ps-4 ms-3">
+                    <div class="timeline-item position-relative border-start border-2 border-primary ps-4 ms-3">
                         <span
                             class="badge rounded-circle text-bg-success position-absolute top-0 start-0 translate-middle p-2 fs-6"><i
                                 class="bi bi-mortarboard-fill"></i></span>
                         <div class="card card-body border-success hover-card">
                             <small class="text-success fw-semibold">2025 sampai sekarang <span
                                     class="badge text-bg-success ms-1">Sedang berjalan</span></small>
-                            <h3 class="h5">Universitas Sulawesi Barat, Teknik Informatika</h3>
-                            <p class="text-body-secondary mb-0">Sekarang di semester 3. Belajar pemrograman, membuat
-                                tugas kelompok, dan mencoba hal baru, termasuk membuat halaman ini dengan Bootstrap.</p>
+                            <h3 class="h5">Universitas Sulawesi Barat</h3>
+                            <p class="text-body-secondary mb-0">Saya adalah sekarang adalah mahasiswa di Universitas
+                                Sulawesi Barat, jurusan Teknik, program studi Infromatika, semester 3 .</p>
                             <div><button class="btn btn-outline-success btn-sm mt-3 btn-gallery" data-level="kuliah"><i
                                         class="bi bi-images me-2"></i>Lihat foto kuliah</button></div>
                         </div>
@@ -244,6 +298,10 @@
     </section>
 
     <!-- ============ BAGIAN 2: CARD RESPONSIF (1 / 2 / 3 kolom) ============ -->
+    <!-- [BOOTSTRAP] KARTU RESPONSIF (SYARAT TUGAS): <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+     row-cols-1 = 1 kolom di HP | row-cols-md-2 = 2 kolom di tablet (>=768px) | row-cols-lg-3 = 3 kolom di laptop (>=992px) | g-4 = jarak antar kartu
+     tiap kartu: col > card h-100 > card-body (card-title, card-text) + card-footer | ikon: d-inline-flex rounded-3 p-3 fs-3 text-bg-*
+     [CUSTOM] hover-card, btn-detail + data-title/data-icon/data-bg/data-desc (isi popup diatur script.js) -->
     <section id="kepribadian" class="py-5">
         <div class="container py-lg-4">
             <div class="mb-4" data-reveal>
@@ -344,6 +402,9 @@
     </section>
 
     <!-- ============ FANS MANCHESTER UNITED ============ -->
+    <!-- [BOOTSTRAP] FANS MU: bg-danger-subtle (latar merah gelap), badge text-bg-danger, btn btn-danger rounded-pill,
+     card bg-transparent border-danger border-start border-4 (kartu dengan garis merah di kiri) | grid: row > col-lg-6
+     [CUSTOM] #cheer (tombol hitung dukungan, logikanya di script.js) -->
     <section id="fans-mu" class="py-5 bg-danger-subtle">
         <div class="container py-lg-4">
             <div class="row g-5 align-items-center">
@@ -390,6 +451,10 @@
     </section>
 
     <!-- ============ BAGIAN 3: FORM KONTAK ============ -->
+    <!-- [BOOTSTRAP] FORM KONTAK + VALIDASI (SYARAT TUGAS)
+     form class="card card-body" novalidate | mb-3 | form-label | form-control (input & textarea)
+     invalid-feedback = pesan error, valid-feedback = pesan benar. Keduanya muncul otomatis saat script.js memberi kelas is-invalid / is-valid
+     spinner-border spinner-border-sm = animasi loading di tombol kirim | list-unstyled = daftar tanpa titik -->
     <section id="kontak" class="py-5">
         <div class="container py-lg-4">
             <div class="row g-5">
@@ -399,10 +464,9 @@
                         soal kuliah, kerja kelompok, atau sekadar menebak skor MU akhir pekan ini.</p>
                     <ul class="list-unstyled mt-4 text-body-secondary">
                         <li class="mb-3"><i class="bi bi-envelope text-primary me-3"></i>abdalpalalo92@gmail.com</li>
-                        <li class="mb-3"><i class="bi bi-geo-alt text-primary me-3"></i>Jl. Korban 40.000 jiwa
+                        <li class="mb-3"><i class="bi bi-geo-alt text-primary me-3"></i>Jl. Contoh No. 12, Kota Contoh
                         </li>
-                        <li><i class="bi bi-mortarboard text-primary me-3"></i>Universitas Sulawesi Barat, Teknik
-                            Informatika
+                        <li><i class="bi bi-mortarboard text-primary me-3"></i>Universitas Contoh, Teknik Informatika
                         </li>
                     </ul>
                 </div>
@@ -441,6 +505,7 @@
         </div>
     </section>
 
+    <!-- [BOOTSTRAP] FOOTER: bg-body-tertiary, border-top, py-4, d-flex, justify-content-between, link-secondary, text-decoration-none -->
     <footer class="bg-body-tertiary border-top py-4">
         <div class="container d-flex flex-wrap justify-content-between gap-2 text-body-secondary">
             <span>© <span id="year"></span> Ahmad Abdal Palalo. Dibuat dengan Bootstrap 5.</span>
@@ -449,9 +514,11 @@
         </div>
     </footer>
 
+    <!-- [BOOTSTRAP] TOMBOL KE ATAS: btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 d-none (d-none dilepas/ditambah script.js saat scroll) -->
     <button id="toTop" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 d-none"
         aria-label="Kembali ke atas"><i class="bi bi-chevron-up"></i></button>
 
+    <!-- [BOOTSTRAP] TOAST (notifikasi sukses): toast-container position-fixed bottom-0 start-0 p-3 > toast text-bg-success > toast-body + btn-close. Ditampilkan lewat bootstrap.Toast di script.js -->
     <div class="toast-container position-fixed bottom-0 start-0 p-3">
         <div id="okToast" class="toast align-items-center text-bg-success border-0" role="status" aria-live="polite">
             <div class="d-flex">
@@ -463,6 +530,9 @@
     </div>
 
     <!-- ============ BAGIAN 4: DIALOG POPUP ============ -->
+    <!-- [BOOTSTRAP] MODAL / DIALOG POPUP (SYARAT TUGAS): modal fade > modal-dialog modal-dialog-centered > modal-content > modal-header (modal-title, btn-close data-bs-dismiss="modal") + modal-body + modal-footer
+     Dibuka oleh tombol dengan data-bs-toggle="modal" data-bs-target="#idModal". Kartu identitas di dalamnya: card, card-header, row, col-4/col-8, ratio, dl
+     [CUSTOM] photo-slot (foto dipasang script.js) -->
     <div class="modal fade" id="idModal" tabindex="-1" aria-labelledby="idTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -490,10 +560,11 @@
                                         <dt class="text-body-secondary fw-normal">Usia</dt>
                                         <dd class="fw-semibold">20 tahun</dd>
                                         <dt class="text-body-secondary fw-normal">Program studi</dt>
-                                        <dd class="fw-semibold">Teknik Informatika, semester 3</dd>
+                                        <dd class="fw-semibold">Teknik Informatika</dd>
                                         <dt class="text-body-secondary fw-normal">Alamat</dt>
-                                        <dd class="fw-semibold">Jl. Korban 40.000 jiwa Kecamatan Tinambung, Kabupaten
-                                            Polewali Mandar</dd>
+                                        <dd class="fw-semibold">Jl. Korban 40.000 Jiwa, Kecamatan Tinambung, Kabupaten
+                                            Majene, Provinsi
+                                            Sulawesi Barat</dd>
                                         <dt class="text-body-secondary fw-normal">Tim favorit</dt>
                                         <dd class="fw-semibold mb-0">Manchester United</dd>
                                     </dl>
@@ -510,6 +581,7 @@
         </div>
     </div>
 
+    <!-- [BOOTSTRAP] MODAL DETAIL KEPRIBADIAN: struktur modal sama seperti di atas, tetapi judul, isi, dan ikonnya diisi script.js. Dibuka lewat bootstrap.Modal -->
     <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="dmTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content overflow-hidden">
@@ -525,6 +597,7 @@
         </div>
     </div>
 
+    <!-- [BOOTSTRAP] MODAL GALERI FOTO: modal modal-lg (lebih lebar). Isinya adalah Bootstrap CAROUSEL (carousel slide, carousel-inner, carousel-item, carousel-control-prev/next) yang dibuat script.js. Foto memakai ratio ratio-4x3 -->
     <div class="modal fade" id="galModal" tabindex="-1" aria-labelledby="galTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -541,8 +614,11 @@
         </div>
     </div>
 
+    <!-- [BOOTSTRAP] JavaScript Bootstrap (bundle, sudah termasuk Popper). Wajib ada agar navbar burger, modal, carousel, toast, dan scrollspy bisa jalan -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- [BOOTSTRAP] cadangan offline: kalau CDN gagal, pakai file lokal lib/bootstrap.bundle.min.js -->
     <script>window.bootstrap || document.write('<script src="lib/bootstrap.bundle.min.js"><\/script>')</script>
+    <!-- [CUSTOM] script.js = JavaScript buatan sendiri (foto, galeri, efek mengetik, validasi form, dll). Memanggil API Bootstrap JS di dalamnya -->
     <script src="script.js"></script>
 </body>
 
